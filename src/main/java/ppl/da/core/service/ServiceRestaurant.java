@@ -11,14 +11,12 @@ import java.util.List;
  */
 public interface ServiceRestaurant {
     /**
-     *
      * @param point
      * @returns restaurants in distance of 20 km
      */
     List<Restaurant> getNearestRestaurants(Point point);
 
     /**
-     *
      * @param point
      * @param distance in km
      * @return restaurants within chosen distance

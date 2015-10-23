@@ -15,9 +15,13 @@ import java.util.List;
  */
 @Service
 @Transactional
-public class ServiceImpl implements ServiceRestaurant {
+public class ServiceRestaurantImpl implements ServiceRestaurant {
+
     @Autowired
     private RestaurantDao dao;
+
+    public ServiceRestaurantImpl(){}
+
     @Override
     public List<Restaurant> getNearestRestaurants(Point point) {
         return getNearestRestaurants(point,Long.valueOf(20));
@@ -45,18 +49,19 @@ public class ServiceImpl implements ServiceRestaurant {
         double theta = point1.getLongitude() - point2.getLongitude();
         double lat1 = point1.getLatitude();
         double lat2 = point2.getLatitude();
-        double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
+        double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1))
+                * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
         dist = Math.acos(dist);
         dist = rad2deg(dist);
         dist = dist * 60 * 1.1515 * 1.609344;
         return dist;
     }
 
-    private static double deg2rad(double deg) {
+    private synchronized static double deg2rad(double deg) {
         return (deg * Math.PI / 180.0);
     }
 
-    private static double rad2deg(double rad) {
+    private synchronized static double rad2deg(double rad) {
         return (rad * 180 / Math.PI);
     }
 }

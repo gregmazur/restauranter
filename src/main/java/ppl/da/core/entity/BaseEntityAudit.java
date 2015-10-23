@@ -19,6 +19,7 @@ public abstract class BaseEntityAudit extends BaseEntity {
     @Column(name = "updated_by")
     private String updatedBy;
 
+    public BaseEntityAudit(){}
 
     public Date getCreatedAt() {
         return createdAt;

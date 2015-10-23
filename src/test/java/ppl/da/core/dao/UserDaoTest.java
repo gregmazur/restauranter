@@ -20,7 +20,7 @@ import static org.junit.Assert.assertNull;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:META-INF/ApplicationContext.xml")
+@ContextConfiguration(locations = "classpath:META-INF/applicationContext.xml")
 @Transactional
 public class UserDaoTest {
     @Autowired

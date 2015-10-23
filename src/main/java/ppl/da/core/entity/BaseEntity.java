@@ -33,6 +33,7 @@ public abstract class BaseEntity implements Serializable {
         return version;
     }
 
+    public BaseEntity(){}
 
     @Override
     public int hashCode() {
