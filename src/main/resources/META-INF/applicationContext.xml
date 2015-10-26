@@ -49,7 +49,7 @@
     <!-- JPA package -->
     <jpa:repositories base-package="ppl.da.core.dao"/>
 
-    <mvc:default-servlet-handler/>
+
 
 
 
